@@ -1,12 +1,12 @@
 const webpackConfig = require('../webpack.config');
 const webpack = require('webpack');
-const {log} = console;
 const chalk = require('chalk');
 const rm = require('rimraf');
 const cwd = process.cwd();
 const fs = require('fs');
 const path = require('path');
 const buildPath = path.resolve(cwd, 'dist');
+const {log} = console;
 
 module.exports = (env) => {
   let isHasPath = fs.existsSync(buildPath);
