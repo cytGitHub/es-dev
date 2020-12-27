@@ -16,10 +16,7 @@
     "webpack": "^5.11.0",
     "webpack-dev-server": "^3.11.0"
   },
-  "repository": {
-    "type": "git",
-    "url":"git@github.com:cytGitHub/es-dev.git"
-  },
+  
 
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
