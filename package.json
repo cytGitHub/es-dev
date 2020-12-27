@@ -1,6 +1,6 @@
 {
-  "name": "@kd/es-dev",
-  "version": "0.0.1",
+  "name": "es-dev-simple",
+  "version": "0.0.2",
   "description": "es语法服务",
   "bin": {
     "es": "./bin/index.js"
