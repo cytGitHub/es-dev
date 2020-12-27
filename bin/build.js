@@ -6,14 +6,13 @@ const cwd = process.cwd();
 const fs = require('fs');
 const path = require('path');
 const buildPath = path.resolve(cwd, 'dist');
-const {log} = console;
+const { log } = console;
 
-module.exports = (env) => {
+module.exports = env => {
   let isHasPath = fs.existsSync(buildPath);
-  if (isHasPath) {
-    rm.sync(buildPath);
-  }
-  const compiler = webpack({...webpackConfig({}, env)});
+  //删除构建目录
+  isHasPath && rm.sync(buildPath);
+  const compiler = webpack({ ...webpackConfig(env) });
   compiler.run((error, stats) => {
     if (error || stats.hasErrors()) {
       log(chalk.red(`${stats}`));
