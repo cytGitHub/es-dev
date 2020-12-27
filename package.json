@@ -1,5 +1,5 @@
 {
-  "name": "es-dev",
+  "name": "@kangduo/es-dev",
   "version": "0.0.1",
   "description": "es语法服务",
   "bin": {
