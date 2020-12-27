@@ -1,5 +1,5 @@
 {
-  "name": "@cyt/es-dev",
+  "name": "es-dev",
   "version": "0.0.1",
   "description": "es语法服务",
   "bin": {
@@ -20,7 +20,7 @@
     "type": "git",
     "url":"git@github.com:cytGitHub/es-dev.git"
   },
-  
+
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
