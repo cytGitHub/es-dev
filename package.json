@@ -1,6 +1,6 @@
 {
   "name": "es-dev-simple",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "方便调试es或react代码，无需关注服务",
   "bin": {
     "es": "./bin/index.js"
@@ -9,7 +9,12 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "devDependencies": {
+  
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^6.2.1",
+    "mkdirp": "^1.0.4",
+    "npm": "^6.14.10",
     "@babel/core": "^7.12.10",
     "@babel/plugin-transform-modules-umd": "x.x.x",
     "@babel/plugin-transform-runtime": "^7.12.10",
@@ -23,11 +28,5 @@
     "ts-loader": "^8.0.12",
     "webpack": "^5.11.0",
     "webpack-dev-server": "^3.11.0"
-  },
-  "dependencies": {
-    "chalk": "^4.1.0",
-    "commander": "^6.2.1",
-    "mkdirp": "^1.0.4",
-    "npm": "^6.14.10"
   }
 }
