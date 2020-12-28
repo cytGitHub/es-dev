@@ -8,7 +8,20 @@ const context = process.cwd();
 const mkdirp = require('mkdirp');
 const chalk = require('chalk');
 const componentPreset = [['@babel/preset-env'], ['@babel/preset-react']];
-const esPreset = [['@babel/preset-env']];
+const esPreset = [
+  [
+    '@babel/preset-env',
+    {
+      useBuiltIns: 'usage',
+      modules: 'umd',
+      corejs: 2,
+      targets: {
+        chrome: '58',
+        ie: '11',
+      },
+    },
+  ],
+];
 const entry = 'src';
 const output = 'es';
 const { log } = console;
@@ -20,7 +33,13 @@ const pkg = require('./pkg').join(' ');
  * @param {string} type
  */
 const transformOptions = type => {
-  let presets = type === '-c' ? componentPreset : esPreset;
+  let presets =
+    type === '-c' || type === '--component' ? componentPreset : esPreset;
+  let plugins =
+    type === '-c' || type === '--component'
+      ? []
+      : [['@babel/plugin-transform-runtime']];
+
   return {
     presets,
   };

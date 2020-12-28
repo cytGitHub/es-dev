@@ -4,6 +4,7 @@ const path = require('path');
 const context = process.cwd();
 
 module.exports = env => {
+  console.log(path.resolve(__dirname));
   let plugins =
     env === 'development'
       ? [
@@ -19,7 +20,18 @@ module.exports = env => {
     output: {
       filename: 'build.chunk.js',
       path: path.resolve(context, 'dist'),
-      libraryTarget: 'umd',
+    },
+
+    resolve: {
+      modules: [path.resolve(__dirname, 'node_modules'), 'node_modules'],
+    },
+    resolveLoader: {
+      modules: [path.resolve(__dirname, 'node_modules'), 'node_modules'],
+    },
+    externals: {
+      react: 'React',
+      'react-dom': 'ReactDOM',
+      antd: 'antd',
     },
     mode: env === 'development' ? 'development' : 'production',
     module: {
@@ -31,10 +43,25 @@ module.exports = env => {
             {
               loader: 'babel-loader',
               options: {
-                presets: ['@babel/preset-env', '@babel/preset-react'],
+                presets: [
+                  path.resolve(__dirname, 'node_modules', '@babel/preset-env'),
+                  path.resolve(
+                    __dirname,
+                    'node_modules',
+                    '@babel/preset-react'
+                  ),
+                ],
               },
             },
           ],
+        },
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.less$/,
+          use: ['style-loader', 'css-loader', 'less-loader'],
         },
       ],
     },

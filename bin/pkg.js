@@ -7,4 +7,9 @@ module.exports = [
   'webpack',
   'react',
   'react-dom',
+  '@babel/plugin-transform-runtime',
+  '@babel/plugin-transform-modules-umd',
+  'core-js',
+  'css-loader',
+  'style-loader',
 ];
